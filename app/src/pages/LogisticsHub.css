@@ -1,0 +1,363 @@
+.logistics-main {
+  margin-right: 0; /* No right sidebar for logistics */
+}
+
+.stats-box {
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.stats-label {
+  font-family: var(--font-label);
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--secondary);
+}
+
+.stats-value {
+  font-family: var(--font-headline);
+  font-size: 1.25rem;
+  color: var(--primary);
+}
+
+.kanban-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.kanban-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.column-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(214, 193, 197, 0.15);
+  padding-bottom: 1rem;
+}
+
+.column-header h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.count-badge {
+  font-family: var(--font-label);
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 0.25rem 0.5rem;
+  letter-spacing: 0.1em;
+}
+
+.count-badge.primary {
+  background-color: var(--primary);
+  color: white;
+}
+
+.count-badge.tertiary {
+  background-color: var(--tertiary-container);
+  color: var(--on-tertiary-container);
+}
+
+.card-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.kanban-card {
+  padding: 1.5rem;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.kanban-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.order-id {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--outline);
+}
+
+.priority-badge {
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  background-color: var(--secondary-container);
+  color: var(--on-secondary-container);
+}
+
+.kanban-card h4 {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.item-preview {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.preview-img {
+  width: 64px;
+  height: 80px;
+  background-color: var(--surface-container-high);
+  overflow: hidden;
+}
+
+.preview-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.grayscale {
+  filter: grayscale(1);
+}
+
+.item-title {
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 0.9rem;
+}
+
+.item-meta {
+  font-size: 0.75rem;
+  color: var(--on-surface-variant);
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--primary-container);
+}
+
+.status-indicator .status-label {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  color: var(--outline);
+}
+
+.card-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.card-actions input {
+  flex-grow: 1;
+  background-color: var(--surface-container-low);
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+}
+
+.btn-small {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-family: var(--font-label);
+  font-size: 0.65rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Inspection Workspace */
+.active-inspection {
+  border: 1px solid var(--primary);
+}
+
+.active-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+.due-timer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--error);
+  font-size: 0.6rem;
+  font-weight: 700;
+}
+
+.inspection-workspace {
+  padding: 1.5rem;
+}
+
+.inspection-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.item-photo img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+}
+
+.details-label {
+  display: block;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.btn-tertiary {
+  width: 100%;
+  background-color: var(--tertiary);
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  font-family: var(--font-label);
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 1rem 0;
+}
+
+.protocol-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.protocol-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--primary);
+  border-bottom: 1px solid rgba(214, 193, 197, 0.15);
+  padding-bottom: 0.5rem;
+}
+
+.protocol-checklist label {
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.protocol-checklist textarea {
+  background-color: var(--surface-container-lowest);
+  border: none;
+  padding: 0.75rem;
+  min-height: 80px;
+  font-size: 0.75rem;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.action-buttons button {
+  flex-grow: 1;
+  padding: 0.75rem;
+  font-family: var(--font-label);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.btn-outline-small {
+  background: transparent;
+  border: 1px solid rgba(214, 193, 197, 0.3);
+}
+
+.btn-primary-small {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+}
+
+/* Global Stats */
+.global-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.stat-card {
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+}
+
+.stat-label {
+  font-family: var(--font-label);
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--secondary);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.stat-value {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.stat-progress {
+  height: 4px;
+  background-color: rgba(214, 193, 197, 0.2);
+  width: 100%;
+}
+
+.stat-progress .fill {
+  height: 100%;
+  background-color: var(--primary);
+}
+
+.background-icon {
+  position: absolute;
+  right: -1rem;
+  bottom: -1rem;
+  font-size: 6rem;
+  opacity: 0.05;
+}
+
+.text-white-dim { color: rgba(255, 255, 255, 0.7); }
+.text-white { color: white; }
+.stat-subtext { font-size: 0.65rem; color: rgba(255, 255, 255, 0.7); margin-top: 1rem; }
