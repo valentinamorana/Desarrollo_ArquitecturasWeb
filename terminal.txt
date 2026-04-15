@@ -1,0 +1,6 @@
+http://localhost:5174
+
+
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+
+npm run dev

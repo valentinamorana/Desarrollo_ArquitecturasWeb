@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#8a4b5f", background: "#fff8f8", "on-secondary-fixed": "#2e1221", "tertiary-fixed": "#e4e2e1", "surface-container-lowest": "#ffffff", error: "#ba1a1a", "on-surface-variant": "#514346", "on-primary-fixed-variant": "#6e3447", "on-primary-container": "#652c40", "surface-bright": "#fff8f8", "secondary-fixed-dim": "#e9bacd", "outline-variant": "#d6c1c5", outline: "#847376", "on-error-container": "#93000a", "error-container": "#ffdad6", "surface-tint": "#8a4b5f", "on-primary-fixed": "#39081c", "surface-container-low": "#fbf1f3", "surface-dim": "#e1d8da", "tertiary-fixed-dim": "#c8c6c6", "secondary-container": "#fdcde1", "primary-fixed-dim": "#ffb1c7", "on-secondary-fixed-variant": "#5f3c4d", "on-tertiary-container": "#3f3f3f", secondary: "#795465", surface: "#fff8f8", "on-tertiary-fixed-variant": "#474747", "secondary-fixed": "#ffd8e7", "primary-fixed": "#ffd9e2", "tertiary-container": "#acaaaa", "surface-container": "#f5ebed", "surface-container-high": "#efe6e8", "inverse-primary": "#ffb1c7", "on-background": "#1f1a1c", "on-surface": "#1f1a1c", "on-secondary": "#ffffff", "inverse-surface": "#342f31", "inverse-on-surface": "#f8eef0", "surface-container-highest": "#eae0e2", tertiary: "#5f5e5e", "on-error": "#ffffff", "surface-variant": "#eae0e2", "on-tertiary": "#ffffff", "on-primary": "#ffffff", "on-secondary-container": "#795465", "primary-container": "#e195ab", "on-tertiary-fixed": "#1b1c1c"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}, fontFamily: {headline: ["Noto Serif"], body: ["Manrope"], label: ["Manrope"], display: "Noto Serif"}}}};</script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #c1c8c3;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body min-h-screen flex">
+<!-- SideNavBar (Operator Shell) -->
+<nav class="h-screen w-64 fixed left-0 top-0 bg-[#f6f4ec] flex flex-col py-8 px-6 z-50">
+<div class="mb-12">
+<h1 class="font-serif text-xl italic text-primary">WardrobeFlow</h1>
+<div class="mt-8 flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center text-primary-fixed">
+<span class="material-symbols-outlined">person</span>
+</div>
+<div>
+<p class="font-serif text-sm text-primary">The Atelier</p>
+<p class="font-sans text-[10px] uppercase tracking-widest text-secondary">Elite Member</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-4 px-4 py-3 text-[#606660] font-sans text-sm uppercase tracking-widest hover:bg-[#eae8e0] transition-all duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span> Overview
+            </a>
+<a class="flex items-center gap-4 px-4 py-3 text-primary font-bold bg-[#eae8e0] font-sans text-sm uppercase tracking-widest transition-all duration-200" href="#">
+<span class="material-symbols-outlined">sync_alt</span> Exchanges
+            </a>
+<a class="flex items-center gap-4 px-4 py-3 text-[#606660] font-sans text-sm uppercase tracking-widest hover:bg-[#eae8e0] transition-all duration-200" href="#">
+<span class="material-symbols-outlined">checkroom</span> My Wardrobe
+            </a>
+<a class="flex items-center gap-4 px-4 py-3 text-[#606660] font-sans text-sm uppercase tracking-widest hover:bg-[#eae8e0] transition-all duration-200" href="#">
+<span class="material-symbols-outlined">tune</span> Preferences
+            </a>
+<a class="flex items-center gap-4 px-4 py-3 text-[#606660] font-sans text-sm uppercase tracking-widest hover:bg-[#eae8e0] transition-all duration-200" href="#">
+<span class="material-symbols-outlined">payments</span> Billing
+            </a>
+</div>
+<div class="mt-auto">
+<p class="font-sans text-[10px] uppercase tracking-[0.1rem] text-outline">© 2024 WardrobeFlow Digital Atelier</p>
+</div>
+</nav>
+<!-- Main Canvas -->
+<main class="ml-64 flex-1 p-12 overflow-y-auto">
+<!-- Header Section -->
+<header class="mb-12 flex justify-between items-end">
+<div class="max-w-2xl">
+<h2 class="font-headline text-[3.5rem] leading-none mb-4 tracking-tight">Logistics <span class="italic font-normal">Hub</span></h2>
+<p class="text-on-surface-variant font-body">Operator portal for seamless garment transitions and quality assurance protocols.</p>
+</div>
+<div class="flex gap-4">
+<div class="bg-surface-container-low px-6 py-3 rounded-lg flex flex-col items-end">
+<span class="text-label-md text-secondary uppercase tracking-widest font-semibold text-[10px]">Queue Status</span>
+<span class="font-headline text-xl text-primary">24 Pending</span>
+</div>
+</div>
+</header>
+<!-- Kanban Workflow -->
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-12 mb-16">
+<!-- Shipments Column -->
+<section class="space-y-6">
+<div class="flex items-center justify-between border-b border-outline-variant/15 pb-4">
+<h3 class="font-headline text-xl flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">local_shipping</span>
+                        Shipments to Prepare
+                    </h3>
+<span class="bg-primary text-white text-[10px] px-2 py-1 tracking-widest font-bold">12 ORDERS</span>
+</div>
+<div class="space-y-4 max-h-[700px] overflow-y-auto pr-2 custom-scrollbar">
+<!-- Shipment Card 1 -->
+<div class="bg-surface-container-lowest p-6 group cursor-pointer transition-all duration-300 hover:ring-1 hover:ring-primary/10">
+<div class="flex justify-between items-start mb-4">
+<div>
+<span class="text-[10px] text-outline uppercase tracking-[0.2rem] mb-1 block">Order #WF-8921</span>
+<h4 class="font-headline text-lg">Elizabeth Vancroft</h4>
+</div>
+<span class="bg-secondary-container text-on-secondary-container text-[10px] px-2 py-1 font-bold">EXPRESS</span>
+</div>
+<div class="flex gap-4 mb-6">
+<div class="w-16 h-20 bg-surface-container-high overflow-hidden">
+<img class="w-full h-full object-cover grayscale" data-alt="close up of a high-quality silk charcoal grey coat texture with minimal metallic buttons" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAM8z6CTMZAmOtwYN4XnsKYUfIxa_cYhSKmv52E5OJd5vobXcn6dvr5ntxXpfrmXKCQHECYnE1xt7aU_ASQzhIsYUTbX--GhIHVyFP9UE580HRb88W9skXtY4nJsWMzBljz-_TQKV4bunbS5J2xVAL1i1NdJrvCrcXVJV-4-X-tBAjglJ_-avApx1dbz-842KVgJeTxJmVDZp7bY9NgPaCs3nQIyPEBnOY_O2Q8IFihcW7L4xIIvP2Y4egzQMhpFI6uIY6li6phxKRF"/>
+</div>
+<div class="flex-1">
+<p class="text-sm font-semibold text-primary">Atelier Trench Coat</p>
+<p class="text-xs text-on-surface-variant">Size: M | Color: Charcoal</p>
+<div class="mt-2 flex gap-1">
+<span class="w-2 h-2 rounded-full bg-primary-fixed-dim"></span>
+<span class="text-[9px] text-outline uppercase">Cleaning Verified</span>
+</div>
+</div>
+</div>
+<div class="flex gap-3">
+<input class="flex-1 text-xs border-none bg-surface-container-low px-4 focus:ring-1 focus:ring-primary" placeholder="Scan tracking number..." type="text"/>
+<button class="bg-primary text-white px-4 py-2 text-xs font-bold transition-all hover:bg-primary-container hover:text-on-primary-container">PRINT LABEL</button>
+</div>
+</div>
+<!-- Shipment Card 2 -->
+<div class="bg-surface-container-lowest p-6 transition-all duration-300 hover:ring-1 hover:ring-primary/10">
+<div class="flex justify-between items-start mb-4">
+<div>
+<span class="text-[10px] text-outline uppercase tracking-[0.2rem] mb-1 block">Order #WF-9042</span>
+<h4 class="font-headline text-lg">Marcus Thorne</h4>
+</div>
+<span class="bg-surface-container-low text-on-surface-variant text-[10px] px-2 py-1 font-bold">STANDARD</span>
+</div>
+<div class="flex gap-4 mb-6">
+<div class="w-16 h-20 bg-surface-container-high overflow-hidden">
+<img class="w-full h-full object-cover grayscale" data-alt="folded dark navy cashmere sweater on a minimalist concrete background with soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5TPpBTgywD4vxcV8AOMtHNylm01o9r03Xakh6ifBfqNwc78kdP4BFjdM1x27f9fKkAUiAnLzlJiK3gm1swK20NssScUH4eUUPO7nhsuRquzkDO_ZmUIqio2Xta9GU_S8z4UB_6Y96cT6UPnx92__fakVgyFWcDhvAM9KCNyYKWBpyFJYkzmxTywi4wyPk4OvxinX6qwGeRBZkuDoOdKksGpRxJTRTUDtZhXBq-LCF-qa7fa_J15-roF2PqPIvMYOAXk4tkjzPgFRZ"/>
+</div>
+<div class="flex-1">
+<p class="text-sm font-semibold text-primary">Heritage Cashmere Rollneck</p>
+<p class="text-xs text-on-surface-variant">Size: L | Color: Midnight</p>
+<div class="mt-2 flex gap-1">
+<span class="w-2 h-2 rounded-full bg-primary-fixed-dim"></span>
+<span class="text-[9px] text-outline uppercase">Cleaning Verified</span>
+</div>
+</div>
+</div>
+<div class="flex gap-3">
+<input class="flex-1 text-xs border-none bg-surface-container-low px-4 focus:ring-1 focus:ring-primary" placeholder="Scan tracking number..." type="text"/>
+<button class="bg-primary text-white px-4 py-2 text-xs font-bold transition-all hover:bg-primary-container hover:text-on-primary-container">PRINT LABEL</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Returns Column -->
+<section class="space-y-6">
+<div class="flex items-center justify-between border-b border-outline-variant/15 pb-4">
+<h3 class="font-headline text-xl flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">assignment_return</span>
+                        Returns to Process
+                    </h3>
+<span class="bg-tertiary-container text-tertiary-fixed-dim text-[10px] px-2 py-1 tracking-widest font-bold">8 PENDING</span>
+</div>
+<div class="space-y-4 max-h-[700px] overflow-y-auto pr-2 custom-scrollbar">
+<!-- Return Process Active Card -->
+<div class="bg-surface-container-lowest ring-1 ring-primary p-6">
+<div class="flex justify-between items-start mb-6">
+<div>
+<span class="text-[10px] text-primary font-bold uppercase tracking-[0.2rem] mb-1 block">Active Inspection: #R-1022</span>
+<h4 class="font-headline text-lg">Sienna Rossi</h4>
+</div>
+<div class="flex items-center gap-2 text-error">
+<span class="material-symbols-outlined text-sm">history</span>
+<span class="text-[10px] font-bold">DUE 2H</span>
+</div>
+</div>
+<!-- Inspection Checklist -->
+<div class="bg-surface-container-low p-6 space-y-6">
+<div class="grid grid-cols-2 gap-4">
+<div class="w-full aspect-[4/5] bg-surface-container-high overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="ivory pleated midi skirt hanging on a minimalist dark wood hanger against a textured off-white wall" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCy_50isrVB6_F86ShYmG6Gsh8GQuUAZxyE10ne4GQuA63bjoMvIM9oThpGCPkMPHNfdCBvaAvtblnBUakfSoOc5Xa927AbY10ZMVI_wEPgOagPt5LzivfShV4_O-Mz0OFZj3z8QVcFVGxZAtq-qHtP-UG6MolGov0ZT_oZ6id6h5sdU9rfXtYhPWHwS_02xZWjWqNJgfQRGsICa2QfQnAkmemkDDZUgbbkMlFrMCl7M5OWHcV3NJ--wRUQESC3pdquOVFNUijAOkoF"/>
+</div>
+<div class="space-y-4">
+<p class="text-xs uppercase tracking-widest font-bold text-primary">Item Details</p>
+<p class="text-sm font-headline">Pleated Midi Skirt</p>
+<p class="text-xs text-on-surface-variant">ID: 4492-IVORY</p>
+<button class="w-full bg-tertiary text-white py-3 text-[10px] font-bold uppercase tracking-widest transition-opacity hover:opacity-90">
+                                        Purchase to Stock
+                                    </button>
+<p class="text-[10px] text-outline leading-tight italic">Use this if the item was not returned but paid for by member.</p>
+</div>
+</div>
+<div class="space-y-3">
+<p class="text-[10px] uppercase tracking-widest font-bold text-primary border-b border-outline-variant/15 pb-2">Inspection Protocol</p>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-4 h-4 rounded-sm border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-xs text-on-surface font-medium group-hover:text-primary">No visible fabric damage or snags</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-4 h-4 rounded-sm border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-xs text-on-surface font-medium group-hover:text-primary">Cleanliness: No scent or stains</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-4 h-4 rounded-sm border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-xs text-on-surface font-medium group-hover:text-primary">Original tags &amp; packaging present</span>
+</label>
+<textarea class="w-full text-xs border-none bg-surface-container-lowest p-3 min-h-[80px] focus:ring-1 focus:ring-primary" placeholder="Operator notes on condition..."></textarea>
+</div>
+<div class="flex gap-4">
+<button class="flex-1 border border-outline-variant/30 text-on-surface py-3 text-xs font-bold uppercase tracking-widest hover:bg-surface-container-high transition-colors">FLAG FOR REPAIR</button>
+<button class="flex-1 bg-primary text-white py-3 text-xs font-bold uppercase tracking-widest hover:bg-primary-container transition-colors">COMPLETE RETURN</button>
+</div>
+</div>
+</div>
+<!-- Return Queue Card 2 -->
+<div class="bg-surface-container-lowest p-6 transition-all duration-300 hover:ring-1 hover:ring-primary/10 flex justify-between items-center opacity-60 grayscale">
+<div class="flex gap-4 items-center">
+<div class="w-12 h-12 bg-surface-container-high overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="clean white silk blouse with minimalist collar detail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB25rDoZy8op9iPZ_xD8kiAVKkdKZUEKuXhM2-tXUyh8O7qVhSbKfFbZSzk3EBxKp5F-g-wupXHSoTKxlP5AsGJSs9vnXihejZVaSqXH7CyKEyegHAd82FFkDz7uIIezNpwDhRTLIpye46HK-qrhvvHKWFHvfkF7J14E3aGY0t9koab7zvbVlyV_wqW8Ym_aGaIu2hXIby_OvRUHh4EW6kpMkRv4Squgb5agcpziy1SGXk0KqHzXrAKc2Trgxx02kDia_VMH2RePgRK"/>
+</div>
+<div>
+<span class="text-[10px] text-outline uppercase tracking-[0.2rem] block">Return #R-1023</span>
+<h4 class="font-headline text-md">Julian Brooks</h4>
+</div>
+</div>
+<button class="text-primary text-[10px] font-bold uppercase border-b border-primary">Inspect Next</button>
+</div>
+</div>
+</section>
+</div>
+<!-- Global Logistics Stats -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-surface-container-low p-8 relative overflow-hidden">
+<div class="relative z-10">
+<p class="text-[10px] uppercase tracking-[0.2rem] text-secondary mb-2">Cycle Time</p>
+<h5 class="font-headline text-3xl text-primary">14.2 <span class="text-lg font-normal">hours</span></h5>
+<div class="mt-4 h-1 w-full bg-outline-variant/20">
+<div class="h-full bg-primary" style="width: 75%;"></div>
+</div>
+</div>
+<span class="material-symbols-outlined absolute -right-4 -bottom-4 text-9xl text-primary/5 select-none">timer</span>
+</div>
+<div class="bg-surface-container-low p-8 relative overflow-hidden">
+<div class="relative z-10">
+<p class="text-[10px] uppercase tracking-[0.2rem] text-secondary mb-2">Transit Inventory</p>
+<h5 class="font-headline text-3xl text-primary">482 <span class="text-lg font-normal">items</span></h5>
+<div class="mt-4 h-1 w-full bg-outline-variant/20">
+<div class="h-full bg-primary" style="width: 45%;"></div>
+</div>
+</div>
+<span class="material-symbols-outlined absolute -right-4 -bottom-4 text-9xl text-primary/5 select-none">package_2</span>
+</div>
+<div class="bg-primary text-white p-8 relative overflow-hidden">
+<div class="relative z-10">
+<p class="text-[10px] uppercase tracking-[0.2rem] text-primary-fixed-dim mb-2">Quality Pass Rate</p>
+<h5 class="font-headline text-3xl">99.2%</h5>
+<p class="text-[10px] text-primary-fixed-dim mt-4">Benchmark: 98.5%</p>
+</div>
+<span class="material-symbols-outlined absolute -right-4 -bottom-4 text-9xl text-white/5 select-none">verified</span>
+</div>
+</section>
+</main>
+<!-- Footer (Tonal Shift) -->
+<footer class="fixed bottom-0 left-64 right-0 bg-[#002116] py-4 px-12 flex justify-between items-center z-40">
+<div class="flex gap-8">
+<a class="text-[#dee4dd]/60 font-sans text-[10px] uppercase tracking-[0.1rem] hover:text-white transition-opacity" href="#">Sustainability Manifesto</a>
+<a class="text-[#dee4dd]/60 font-sans text-[10px] uppercase tracking-[0.1rem] hover:text-white transition-opacity" href="#">The Process</a>
+<a class="text-[#dee4dd]/60 font-sans text-[10px] uppercase tracking-[0.1rem] hover:text-white transition-opacity" href="#">Care Guide</a>
+</div>
+<p class="text-white font-sans text-[10px] uppercase tracking-[0.1rem]">© 2024 WardrobeFlow Digital Atelier</p>
+</footer>
+</body></html>

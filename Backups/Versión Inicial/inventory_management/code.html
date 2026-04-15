@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>WardrobeFlow | Inventory Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#8a4b5f", background: "#fff8f8", "on-secondary-fixed": "#2e1221", "tertiary-fixed": "#e4e2e1", "surface-container-lowest": "#ffffff", error: "#ba1a1a", "on-surface-variant": "#514346", "on-primary-fixed-variant": "#6e3447", "on-primary-container": "#652c40", "surface-bright": "#fff8f8", "secondary-fixed-dim": "#e9bacd", "outline-variant": "#d6c1c5", outline: "#847376", "on-error-container": "#93000a", "error-container": "#ffdad6", "surface-tint": "#8a4b5f", "on-primary-fixed": "#39081c", "surface-container-low": "#fbf1f3", "surface-dim": "#e1d8da", "tertiary-fixed-dim": "#c8c6c6", "secondary-container": "#fdcde1", "primary-fixed-dim": "#ffb1c7", "on-secondary-fixed-variant": "#5f3c4d", "on-tertiary-container": "#3f3f3f", secondary: "#795465", surface: "#fff8f8", "on-tertiary-fixed-variant": "#474747", "secondary-fixed": "#ffd8e7", "primary-fixed": "#ffd9e2", "tertiary-container": "#acaaaa", "surface-container": "#f5ebed", "surface-container-high": "#efe6e8", "inverse-primary": "#ffb1c7", "on-background": "#1f1a1c", "on-surface": "#1f1a1c", "on-secondary": "#ffffff", "inverse-surface": "#342f31", "inverse-on-surface": "#f8eef0", "surface-container-highest": "#eae0e2", tertiary: "#5f5e5e", "on-error": "#ffffff", "surface-variant": "#eae0e2", "on-tertiary": "#ffffff", "on-primary": "#ffffff", "on-secondary-container": "#795465", "primary-container": "#e195ab", "on-tertiary-fixed": "#1b1c1c"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}, fontFamily: {headline: ["Noto Serif"], body: ["Manrope"], label: ["Manrope"], display: "Noto Serif"}}}};</script>
+<style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .glass-nav { background: rgba(251, 249, 241, 0.8); backdrop-filter: blur(20px); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-fixed-dim">
+<!-- Sidebar Navigation (Shared Component: SideNavBar) -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-[#f6f4ec] dark:bg-[#1b1c17] flex flex-col py-8 px-6 z-40">
+<div class="mb-12">
+<h1 class="font-serif text-xl text-[#002116] dark:text-[#a8cfbd] tracking-tight">The Atelier</h1>
+<p class="font-sans text-[10px] uppercase tracking-widest text-[#606660] dark:text-[#c1c8c3] mt-1">Elite Member Panel</p>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-[#606660] dark:text-[#c1c8c3] font-sans text-sm uppercase tracking-widest hover:bg-[#eae8e0] dark:hover:bg-[#2e2f2a] transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Overview</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#002116] font-bold dark:text-[#fbf9f1] font-sans text-sm uppercase tracking-widest bg-[#eae8e0] dark:bg-[#2e2f2a] transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="checkroom">checkroom</span>
+<span>My Wardrobe</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#606660] dark:text-[#c1c8c3] font-sans text-sm uppercase tracking-widest hover:bg-[#eae8e0] dark:hover:bg-[#2e2f2a] transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="sync_alt">sync_alt</span>
+<span>Exchanges</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#606660] dark:text-[#c1c8c3] font-sans text-sm uppercase tracking-widest hover:bg-[#eae8e0] dark:hover:bg-[#2e2f2a] transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+<span>Preferences</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#606660] dark:text-[#c1c8c3] font-sans text-sm uppercase tracking-widest hover:bg-[#eae8e0] dark:hover:bg-[#2e2f2a] transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span>Billing</span>
+</a>
+</nav>
+<div class="mt-auto flex items-center gap-3 pt-6 border-t border-outline-variant/15">
+<div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden">
+<img alt="Member Profile" class="w-full h-full object-cover" data-alt="close-up portrait of professional male operator with sharp styling in high-end office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtkKx-PA-VgX9ksFe_rlacg83GWLVJ9V6InBg1FhrDh3pZQWS6T-2ws5iTERYEQjS6SbE7FhZaes4eBV3qlrlgClhn8E4jb6bmCEB7mu0QZ89DoglwedkwqEpKfRVnlc_wRTESwlwNOKgecQlWUVGE2eCVrOV6bfizCOFbE_ESg6KHTAeW7gpyP1Yw0q2A2ICDxC-AXPljrNwIozzOBHaK-KZsjvhb8emnOew4uLjUNpQlOwURz-ahLs-cauoLuXKQx5KsddWY0gdT"/>
+</div>
+<div class="overflow-hidden">
+<p class="text-xs font-bold truncate">Julian Thorne</p>
+<p class="text-[10px] text-secondary truncate">Inventory Lead</p>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 mr-[400px] min-h-screen p-12 transition-all duration-300">
+<!-- Header Section -->
+<header class="mb-10 flex justify-between items-end">
+<div>
+<h2 class="font-headline text-3xl font-bold tracking-tight text-primary mb-2">Inventory Ledger</h2>
+<p class="text-secondary max-w-md">Comprehensive management of the Atelier's shared collection. Monitor status, condition, and distribution.</p>
+</div>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-sm flex items-center gap-2 text-sm font-label uppercase tracking-widest hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                Add New Item
+            </button>
+</header>
+<!-- Search and Filter Bar -->
+<div class="bg-surface-container-low p-4 mb-8 flex flex-wrap gap-4 items-center">
+<div class="relative flex-1 min-w-[300px]">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full bg-surface-container-lowest border-none py-3 pl-12 text-sm focus:ring-1 focus:ring-primary rounded-sm" placeholder="Search by ID, name, or category..." type="text"/>
+</div>
+<div class="flex gap-2">
+<button class="bg-surface-container-lowest px-4 py-3 text-xs font-label uppercase tracking-widest border border-outline-variant/15 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="filter_list">filter_list</span>
+                    Category
+                </button>
+<button class="bg-surface-container-lowest px-4 py-3 text-xs font-label uppercase tracking-widest border border-outline-variant/15 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="sync">sync</span>
+                    Status
+                </button>
+</div>
+</div>
+<!-- Data Table (The Ledger) -->
+<div class="bg-surface-container-lowest rounded-sm overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-high/50 border-b border-outline-variant/10">
+<tr>
+<th class="px-6 py-4 text-[10px] font-label uppercase tracking-widest text-secondary">ID</th>
+<th class="px-6 py-4 text-[10px] font-label uppercase tracking-widest text-secondary">Item Name</th>
+<th class="px-6 py-4 text-[10px] font-label uppercase tracking-widest text-secondary">Category</th>
+<th class="px-6 py-4 text-[10px] font-label uppercase tracking-widest text-secondary">Current Location</th>
+<th class="px-6 py-4 text-[10px] font-label uppercase tracking-widest text-secondary">Last Inspection</th>
+<th class="px-6 py-4 text-[10px] font-label uppercase tracking-widest text-secondary text-right">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer group">
+<td class="px-6 py-5 text-sm font-medium text-outline">WF-8821</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-12 bg-surface-container-high rounded-sm overflow-hidden">
+<img alt="WF-8821" class="w-full h-full object-cover" data-alt="luxurious charcoal wool overcoat with sharp tailored lines on a neutral studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCcC26mbQjY-SkkwIVII1sCkjd7dern8zz8tvd2nlDf2VnoaegDZnSaYmagWiXNV2tZFNWEFZXQt8b2c4zdUc60nL2TdrRj6LM69q8YAIz-DA7fkfL5H_YfxZZUABpvo3d2q-RhwfIFUwbA3hPeV7nFOluNmuAY2NcG3JBBajXKy0_uz5AAmc6dkrawCOKD2EEqSAkEPG0n9fVGrzf5BB_rtfoXkFayIEyPkieWebIRLhCTATv0utXQMehDWqDlW9Np5t2AhTA8B-q"/>
+</div>
+<span class="text-sm font-semibold text-primary">Charcoal Wool Overcoat</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm text-secondary">Outerwear</td>
+<td class="px-6 py-5 text-sm">Central Hub - Bin A4</td>
+<td class="px-6 py-5 text-sm text-secondary">Oct 12, 2023</td>
+<td class="px-6 py-5 text-right">
+<span class="px-3 py-1 bg-primary-fixed-dim/20 text-primary-fixed-dim text-[10px] font-bold uppercase tracking-wider rounded-full border border-primary-fixed-dim/30">Available</span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="bg-surface-container-low border-l-4 border-primary transition-colors cursor-pointer">
+<td class="px-6 py-5 text-sm font-medium text-outline">WF-3419</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-12 bg-surface-container-high rounded-sm overflow-hidden">
+<img alt="WF-3419" class="w-full h-full object-cover" data-alt="elegant dark emerald silk evening dress draping softly with a subtle sheen under dramatic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDZjblE9kkijoXX0Z8kizRDLLsZCRYwzLdNqOfWchDrPZq617E15nox0KuTBlCSuBG2l2zi9x8wOi_e8gwMkeY5fred8evmBaiaIxe-FuEh5os940NwLQYvMZVq-IckXeNnTetES-JnQAOhAgLdTjAFCfK0glFlWXQsIm5K_T3b0jlGBc7ctjnjfeACtOmvkDfx2a_lIyZu0ITdivErUYMV5fcA6pGSM_KLGk_uCnbx0nxOrtE8-BQilyLKinnjzQ3-CRx1HXdXKhH"/>
+</div>
+<span class="text-sm font-semibold text-primary">Emerald Silk Gown</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm text-secondary">Evening Wear</td>
+<td class="px-6 py-5 text-sm text-primary font-medium">Clara Vanderwaal</td>
+<td class="px-6 py-5 text-sm text-secondary">Nov 02, 2023</td>
+<td class="px-6 py-5 text-right">
+<span class="px-3 py-1 bg-on-tertiary-container/10 text-on-tertiary-container text-[10px] font-bold uppercase tracking-wider rounded-full border border-on-tertiary-container/30">Rented</span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer">
+<td class="px-6 py-5 text-sm font-medium text-outline">WF-1202</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-12 bg-surface-container-high rounded-sm overflow-hidden">
+<img alt="WF-1202" class="w-full h-full object-cover" data-alt="crisp high-end white cotton poplin button-down shirt with structured collar on a minimalist hanger" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNzn7pPhXvVNvtFAy-33yZXO-X14p65FeE-gstl1Oj-J0m0MNyh9GCweTyBTuRDqmt77wkFkSgofPCKVcN3LdadxnKZtHN6kNkOpkD8LL_X7OVVz2NPO2n7fVrbfCFfrykyrDIioxdIJbRyQVEyuDaHZtz3LquNpTrZwdSqCgNyoWGTLpHzeyHlpOAJDG-qGNurfTMttyZgzJoyAdOuZblJUfdnU5cvPc3WIBxB6lWR6T0LyoA8SYurSGLoF-exLc0BqDYTXOcBCcQ"/>
+</div>
+<span class="text-sm font-semibold text-primary">White Poplin Shirt</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm text-secondary">Essentials</td>
+<td class="px-6 py-5 text-sm">Atelier Cleaners Inc.</td>
+<td class="px-6 py-5 text-sm text-secondary">Oct 28, 2023</td>
+<td class="px-6 py-5 text-right">
+<span class="px-3 py-1 bg-outline-variant/20 text-outline text-[10px] font-bold uppercase tracking-wider rounded-full border border-outline-variant/30">Cleaning</span>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer">
+<td class="px-6 py-5 text-sm font-medium text-outline">WF-0094</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-12 bg-surface-container-high rounded-sm overflow-hidden">
+<img alt="WF-0094" class="w-full h-full object-cover" data-alt="vintage beige trench coat with tortoise shell buttons and elegant silhouette on cream background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEBxsNH5aYEavkjWt8l-5_ZoisSU1EE5k0Uz6ZZus43vW5hdE8VqoPkuh_TrD-UTazN4PyuPsft-u4b1q8c7R23QFU1GFToPluVF_OBL3E5XUxGpink8St337i2tuV-97Wz9elnPUZXiams3BaUJ0t2t1eNaDxvO_Ub_YWjQal68ompbR_hQ2fUG3ejhBH-otZsX8Hteucd545QT4kVjst3djxgnnE2y7zTIMq7_J6JHERxJmX1lBpuI2mAZawVXYA9HOgYeTqG349"/>
+</div>
+<span class="text-sm font-semibold text-primary">Classic Trench Coat</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm text-secondary">Outerwear</td>
+<td class="px-6 py-5 text-sm">Tailoring Suite</td>
+<td class="px-6 py-5 text-sm text-secondary">Nov 05, 2023</td>
+<td class="px-6 py-5 text-right">
+<span class="px-3 py-1 bg-error-container/20 text-error text-[10px] font-bold uppercase tracking-wider rounded-full border border-error-container/30">Repair</span>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer">
+<td class="px-6 py-5 text-sm font-medium text-outline">WF-7723</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-12 bg-surface-container-high rounded-sm overflow-hidden">
+<img alt="WF-7723" class="w-full h-full object-cover" data-alt="luxurious navy blue cashmere knit sweater texture close-up with soft tactile feel" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6ixNmuLpoVp9WiHosXHNT7jg8EyqcgMiy0EzsUsDFUagYNxP-8ab8JCsX2ixA-mYpR6QgLeyNmJIz9R-1pRu2jffyfGyvjzUz8sb4nxFYs6jbFapQAg3UDXJTAthTcjN8b5_DHSGxLBJ8ONbvgZmgYFhszPNec3d6jLOO5IfxQb8VryS83ev-GAhpnoRtLFx6YRXyqzms3o3pcXDxUnPCCbY2t0jIOW6nnY8Hfs6spOqE3NF3g7J4PnjdN2BFZYJ_ZbzyYtur8ztX"/>
+</div>
+<span class="text-sm font-semibold text-primary">Navy Cashmere Knit</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm text-secondary">Knitwear</td>
+<td class="px-6 py-5 text-sm">Central Hub - Bin B12</td>
+<td class="px-6 py-5 text-sm text-secondary">Nov 01, 2023</td>
+<td class="px-6 py-5 text-right">
+<span class="px-3 py-1 bg-primary-fixed-dim/20 text-primary-fixed-dim text-[10px] font-bold uppercase tracking-wider rounded-full border border-primary-fixed-dim/30">Available</span>
+</td>
+</tr>
+</tbody>
+</table>
+<footer class="px-6 py-4 bg-surface-container-high/20 border-t border-outline-variant/10 flex justify-between items-center">
+<span class="text-[10px] font-label uppercase tracking-widest text-secondary">Showing 1-15 of 2,482 Garments</span>
+<div class="flex gap-4">
+<button class="text-outline hover:text-primary"><span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span></button>
+<button class="text-primary font-bold text-xs">1</button>
+<button class="text-outline hover:text-primary text-xs">2</button>
+<button class="text-outline hover:text-primary text-xs">3</button>
+<button class="text-outline hover:text-primary"><span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span></button>
+</div>
+</footer>
+</div>
+</main>
+<!-- Detail View Sidebar (Right Fixed) -->
+<aside class="fixed right-0 top-0 w-[400px] h-screen bg-surface-container-lowest shadow-2xl border-l border-outline-variant/10 z-50 overflow-y-auto no-scrollbar">
+<div class="p-8">
+<div class="flex justify-between items-start mb-8">
+<button class="w-10 h-10 flex items-center justify-center hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined text-outline" data-icon="close">close</span>
+</button>
+<div class="flex gap-2">
+<button class="w-10 h-10 flex items-center justify-center hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined text-outline" data-icon="edit">edit</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined text-outline" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Item Main Header -->
+<div class="mb-10 text-center">
+<div class="w-48 h-64 bg-surface-container-low mx-auto rounded-sm overflow-hidden mb-6 shadow-sm">
+<img alt="WF-3419 Full View" class="w-full h-full object-cover" data-alt="full length view of an emerald silk evening gown on a minimalist dress form with elegant drapery and side lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxT2Y_czEMBYp-OqygXPDIR6XRhg0n87d-Ya6aEfjq92zL4N_tKk6zv3hKqgKZjnv2eJL2ssYwFjsrAM9XmG3vaRkhNJVZKs7hwCI3LwLfKnS58m5lsTHOQGgL7AQNELZ3_jyq-Ec2s9STbapAM9cNfIDAOoT-W_33edlKLu2fnVWkN3YU2v-pQIoAliVUFsSbp1lE5SwaBfEwEE0nPEmDhCugC0gSWSwYrAs40wo4Tru9MTQvrPZA4otV-XCUR5IYrYuVJTlfKqwc"/>
+</div>
+<h3 class="font-headline text-2xl font-bold text-primary leading-tight">Emerald Silk Gown</h3>
+<p class="text-xs font-label uppercase tracking-widest text-outline mt-1">ID: WF-3419 • Evening Wear</p>
+<div class="inline-block mt-4 px-4 py-1.5 bg-on-tertiary-container/10 text-on-tertiary-container text-[10px] font-bold uppercase tracking-widest rounded-full border border-on-tertiary-container/30">
+                    Currently Rented
+                </div>
+</div>
+<!-- Current Status Details -->
+<section class="mb-10">
+<h4 class="text-[10px] font-label uppercase tracking-widest text-secondary mb-4 border-b border-outline-variant/15 pb-2">Active Rental</h4>
+<div class="flex items-center gap-4 bg-surface-container-low p-4 rounded-sm">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img alt="Clara Profile" class="w-full h-full object-cover" data-alt="portrait of elegant female member with sophisticated aesthetic in high-end setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsa56qLwLDLnVM8NVk9aIQjsvl5tUR1gMETI9HDrn1kXz3Tla5FWO_4fKTqSXlHfYAUHAJHop2Ga8yttXNabZDtWcCnhOsOvPnvF3JJ7F5GEMd53gudHw91AFBpOkXaqAFF2zalV_V2fIAOuQsvPAwM61mkoJO4ByQunpfTBtdYcHbtvA5uUO2JRB3bNOxxaUIBftGzZb1cuFFA2BpA3jxb4hPqgTVAsLCYNaaqaRxEiG4R4QtaGGp-BHR8u_IPkXDBjNZTYILPX-g"/>
+</div>
+<div>
+<p class="text-sm font-bold text-primary">Clara Vanderwaal</p>
+<p class="text-xs text-secondary">Due: Nov 15, 2023 (8 Days Remaining)</p>
+</div>
+</div>
+</section>
+<!-- Physical Condition Notes -->
+<section class="mb-10">
+<h4 class="text-[10px] font-label uppercase tracking-widest text-secondary mb-4 border-b border-outline-variant/15 pb-2">Condition Log</h4>
+<div class="space-y-4">
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-sm text-primary mt-1" data-icon="verified">verified</span>
+<div>
+<p class="text-xs font-bold text-primary">Last Inspection: Perfect Condition</p>
+<p class="text-[11px] text-secondary">Nov 02, 2023 • By Marco R.</p>
+<p class="text-xs text-on-surface-variant mt-1">"Hem reinforced, no visible pulls. Steam pressed prior to dispatch."</p>
+</div>
+</div>
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-sm text-on-tertiary-container mt-1" data-icon="error">error</span>
+<div>
+<p class="text-xs font-bold text-primary">Previous: Minor Surface Stain</p>
+<p class="text-[11px] text-secondary">Oct 14, 2023 • By Sarah L.</p>
+<p class="text-xs text-on-surface-variant mt-1">"Wine spot near waist. Sent to specialized cleaners. Fully recovered."</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Rental History -->
+<section class="mb-6">
+<h4 class="text-[10px] font-label uppercase tracking-widest text-secondary mb-4 border-b border-outline-variant/15 pb-2">Rental History</h4>
+<div class="space-y-6">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-[10px] font-bold">EM</div>
+<div>
+<p class="text-xs font-medium text-primary">Eleanor M.</p>
+<p class="text-[10px] text-secondary">Sep 15 - Sep 22, 2023</p>
+</div>
+</div>
+<span class="text-[10px] font-bold text-outline uppercase tracking-tighter">$450 Earned</span>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-[10px] font-bold">TH</div>
+<div>
+<p class="text-xs font-medium text-primary">Thomas H.</p>
+<p class="text-[10px] text-secondary">Aug 28 - Sep 04, 2023</p>
+</div>
+</div>
+<span class="text-[10px] font-bold text-outline uppercase tracking-tighter">$450 Earned</span>
+</div>
+</div>
+<button class="w-full mt-6 py-3 border border-outline-variant/30 text-[10px] font-label uppercase tracking-widest text-secondary hover:bg-surface-container-low transition-colors">View All 12 Previous Rentals</button>
+</section>
+</div>
+</aside>
+<!-- Footer (Shared Component) -->
+<footer class="ml-64 mr-[400px] bg-[#002116] text-white py-16 flex flex-col md:flex-row justify-between items-center px-12 max-w-[1920px] relative z-30">
+<div class="mb-8 md:mb-0">
+<h3 class="font-serif italic text-white text-xl">WardrobeFlow</h3>
+<p class="font-sans text-[10px] uppercase tracking-[0.1rem] text-[#dee4dd]/60 mt-2">© 2024 WardrobeFlow Digital Atelier</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-sans text-[10px] uppercase tracking-[0.1rem] text-[#dee4dd]/60 hover:text-white transition-opacity" href="#">Sustainability Manifesto</a>
+<a class="font-sans text-[10px] uppercase tracking-[0.1rem] text-[#dee4dd]/60 hover:text-white transition-opacity" href="#">The Process</a>
+<a class="font-sans text-[10px] uppercase tracking-[0.1rem] text-[#dee4dd]/60 hover:text-white transition-opacity" href="#">Care Guide</a>
+<a class="font-sans text-[10px] uppercase tracking-[0.1rem] text-[#dee4dd]/60 hover:text-white transition-opacity" href="#">Privacy</a>
+<a class="font-sans text-[10px] uppercase tracking-[0.1rem] text-[#dee4dd]/60 hover:text-white transition-opacity" href="#">Terms</a>
+</div>
+</footer>
+</body></html>

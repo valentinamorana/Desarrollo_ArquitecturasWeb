@@ -425,3 +425,38 @@
   color: #606660;
   font-size: 0.75rem;
 }
+
+.btn-outline-small {
+  padding: 0.5rem 1.2rem;
+  border: 1px solid var(--primary);
+  background: transparent;
+  color: var(--primary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-outline-small:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-logout-small {
+  padding: 0.4rem 0.8rem;
+  background: rgba(0,0,0,0.05);
+  color: var(--text-muted);
+  border: none;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.btn-logout-small:hover {
+  background: rgba(0,0,0,0.1);
+  color: var(--text-primary);
+}

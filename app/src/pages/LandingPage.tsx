@@ -1,27 +1,40 @@
+import { Link } from 'react-router-dom';
 import './LandingPage.css';
 
-const LandingPage = () => {
+interface LandingPageProps {
+  userType: string | null;
+  onLogout: () => void;
+}
+
+const LandingPage = ({ userType, onLogout }: LandingPageProps) => {
   return (
     <div className="landing-page">
       <nav className="glass-nav landing-nav">
         <div className="nav-container">
           <div className="nav-left">
-            <a href="#" className="brand-logo">WardrobeFlow</a>
+            <Link to="/" className="brand-logo">WardrobeFlow</Link>
             <div className="nav-links">
-              <a href="#" className="active">Catalog</a>
-              <a href="#">Collections</a>
-              <a href="#">The Atelier</a>
-              <a href="#">Membership</a>
+              <Link to={userType ? "/member" : "/login"} className="active">Catálogo</Link>
+              <a href="#">Colecciones</a>
+              <a href="#">El Atelier</a>
+              <a href="#">Membresía</a>
             </div>
           </div>
           <div className="nav-right">
             <div className="search-bar">
               <span className="material-symbols-outlined">search</span>
-              <input type="text" placeholder="Search the archive..." />
+              <input type="text" placeholder="Buscar en el archivo..." />
             </div>
             <div className="nav-icons">
               <button className="material-symbols-outlined">shopping_bag</button>
-              <button className="material-symbols-outlined">person</button>
+              {userType ? (
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                  <Link to="/member" className="material-symbols-outlined" style={{ textDecoration: 'none', color: 'inherit' }}>person</Link>
+                  <button onClick={onLogout} className="btn-logout-small">SALIR</button>
+                </div>
+              ) : (
+                <Link to="/login" className="btn btn-outline-small" style={{ textDecoration: 'none' }}>INGRESAR</Link>
+              )}
             </div>
           </div>
         </div>
@@ -31,16 +44,16 @@ const LandingPage = () => {
         <section className="hero-section">
           <div className="container hero-grid">
             <div className="hero-content">
-              <span className="label">The New Era of Consumption</span>
+              <span className="label">La Nueva Era del Consumo</span>
               <h1 className="display-text">
-                The <span className="italic font-normal">Rotational</span> Wardrobe.
+                Wardrobe<span className="italic font-normal">Flow</span>.
               </h1>
               <p className="hero-description">
-                A continuous stream of high-fashion, delivered to your door. Wear the seasons’s best, swap when you’re ready, and never own a "last-year" piece again.
+                Un flujo continuo de alta moda, entregado en tu puerta. Viste lo mejor de la temporada, cámbialo cuando estés lista y nunca vuelvas a poseer una pieza de la "temporada pasada".
               </p>
               <div className="button-group">
-                <button className="btn btn-primary">Explore Catalog</button>
-                <button className="btn btn-outline">Learn More</button>
+                <Link to="/member" className="btn btn-primary" style={{ textDecoration: 'none' }}>Explorar Catálogo</Link>
+                <button className="btn btn-outline">Saber Más</button>
               </div>
             </div>
             <div className="hero-visual">
@@ -58,26 +71,26 @@ const LandingPage = () => {
           <div className="container">
             <div className="section-header">
               <div className="section-title">
-                <h2>A Curated Journey</h2>
-                <p>Sustainable luxury isn't about owning less; it's about experiencing more through a mindful rotation.</p>
+                <h2>Un Viaje Curado</h2>
+                <p>El lujo sostenible no se trata de poseer menos; se trata de experimentar más a través de una rotación consciente.</p>
               </div>
               <div className="title-divider"></div>
             </div>
             <div className="steps-grid">
               <div className="step-card">
                 <span className="step-number">01</span>
-                <h3>Select</h3>
-                <p>Browse our seasonal archives of designer pieces. Choose up to five items for your monthly rotation from the world's leading ateliers.</p>
+                <h3>Selecciona</h3>
+                <p>Navega por nuestros archivos estacionales de piezas de diseñador. Elige hasta cinco artículos para tu rotación mensual de los mejores talleres del mundo.</p>
               </div>
               <div className="step-card">
                 <span className="step-number">02</span>
-                <h3>Wear</h3>
-                <p>Enjoy your curated selection for as long as you like. From gala events to everyday elegance, live your life in WardrobeFlow styles.</p>
+                <h3>Viste</h3>
+                <p>Disfruta de tu selección curada durante el tiempo que desees. Desde eventos de gala hasta la elegancia cotidiana, vive tu vida con los estilos de WardrobeFlow.</p>
               </div>
               <div className="step-card">
                 <span className="step-number">03</span>
-                <h3>Swap</h3>
-                <p>Whenever you're ready for something new, return your items in our reusable packaging. Your next selection is already waiting.</p>
+                <h3>Intercambia</h3>
+                <p>Cuando estés lista para algo nuevo, devuelve tus artículos en nuestro embalaje reutilizable. Tu próxima selección ya te está esperando.</p>
               </div>
             </div>
           </div>
@@ -87,36 +100,34 @@ const LandingPage = () => {
           <div className="container catalog-layout">
             <aside className="filters-sidebar">
               <div className="filter-group">
-                <h4>Category</h4>
+                <h4>Categoría</h4>
                 <ul>
-                  <li>Dresses <span>42</span></li>
-                  <li className="active">Outerwear <span>18</span></li>
-                  <li>Sets <span>24</span></li>
-                  <li>Accessories <span>12</span></li>
+                  <li>Vestidos <span>42</span></li>
+                  <li className="active">Abrigos <span>18</span></li>
+                  <li>Conjuntos <span>24</span></li>
+                  <li>Accesorios <span>12</span></li>
                 </ul>
               </div>
-              {/* More filters... */}
             </aside>
             <div className="catalog-grid-container">
               <div className="grid-header">
-                <span>Showing 18 of 142 Pieces</span>
-                <div className="sort-by">Sort By: Featured <span className="material-symbols-outlined">expand_more</span></div>
+                <span>Mostrando 18 de 142 Piezas</span>
+                <div className="sort-by">Ordenar por: Destacados <span className="material-symbols-outlined">expand_more</span></div>
               </div>
               <div className="product-grid">
                 <div className="product-card">
                    <div className="product-image">
                       <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsvAlr9uAVHc_P45ki68vGIB6LLBvGq-k_hSAjlkUDYOlu19PzFL8BC0deMTtIDC1yd_sO8Ilbi9qGjXFyCMm3x9eT_Dp5r2TBz4K8iDZdwA4KJhsCpoIFEb7b8YQjmhOBBndYv6PBkO7GRPQ7swYJCaQC8ZBZRPU_jiY54wx6Fr1LF091paklaEdT92r38Do7YyG5heg-LT-iYbfT2nYOH2Sx8yhJ_UAhZW_48qRmuAmNERW-tMJIfKm4ca0SkpvIIdJYURgIdeUi" alt="Product" />
-                      <div className="quick-add">Quick Add</div>
+                      <div className="quick-add">Añadir Rápido</div>
                    </div>
                    <div className="product-info">
                       <div>
                         <span className="brand">Saint Laurent Atelier</span>
-                        <h5>Sculpted Wool Overcoat</h5>
+                        <h5>Abrigo de Lana Esculpido</h5>
                       </div>
                       <span className="material-symbols-outlined">favorite</span>
                    </div>
                 </div>
-                {/* Repeat more product cards... */}
               </div>
             </div>
           </div>
@@ -127,16 +138,17 @@ const LandingPage = () => {
         <div className="footer-container">
           <div className="footer-brand">
             <span className="footer-logo">WardrobeFlow</span>
-            <p>Elevating the rotation since 2024.</p>
+            <p>Elevando la rotación desde 2024.</p>
           </div>
           <div className="footer-links">
-            <a href="#">Sustainability</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Contact Us</a>
+            <Link to="/admin">Panel Admin</Link>
+            <Link to="/staff/inventory">Inventario</Link>
+            <Link to="/staff/logistics">Logística</Link>
+            <a href="#">Sostenibilidad</a>
+            <a href="#">Contacto</a>
           </div>
           <div className="footer-copyright">
-            © 2024 WardrobeFlow Digital Atelier. All Rights Reserved.
+            © 2024 WardrobeFlow Digital Atelier. Todos los Derechos Reservados.
           </div>
         </div>
       </footer>

@@ -1,17 +1,21 @@
 import SideNavBar from '../components/layout/SideNavBar';
 import './MemberDashboard.css';
 
-const MemberDashboard = () => {
+interface MemberDashboardProps {
+  onLogout?: () => void;
+}
+
+const MemberDashboard = ({ onLogout }: MemberDashboardProps) => {
   return (
     <div className="member-layout">
-      <SideNavBar />
+      <SideNavBar onLogout={onLogout} />
       <main className="member-main">
         <header className="page-header">
           <div className="header-text">
-            <span className="label">Curation Hub</span>
-            <h2 className="display-text">My Current Wardrobe</h2>
+            <span className="label">Centro de Curaduría</span>
+            <h2 className="display-text">Mi WardrobeFlow Actual</h2>
           </div>
-          <button className="btn btn-primary">Request an Exchange</button>
+          <button className="btn btn-primary">Solicitar Intercambio</button>
         </header>
 
         <div className="dashboard-grid">
@@ -21,16 +25,16 @@ const MemberDashboard = () => {
               <div className="wardrobe-card editorial-shadow">
                 <div className="card-image">
                   <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_Hnuvq-0KZf_Z3qSwJ18QxgDMNOnGTxAMjxwUNByEvojWUaaKgGoTg1fqdKMOMKFEfKzwPK_FDzlTat6WHzsJPDmRoOt4wMMSxaf7b3Grtg0kXHRCcHzBoda8nDe6p7M3zoGyq1D8FZRQn0wLUBfEw1P5aubF60B_kDBQJeVZZobHY8lhTD3yWYhxyA7zRm-kyf9pNEDZpcQFrVkVEc0gYFlAXhSHDGrTCmDUSVaLnXzOBtLppm2fktH51Q7kfBGmsO45GMX5Vhv6" alt="Trench Coat" />
-                  <div className="status-badge">12 days left</div>
+                  <div className="status-badge">12 días restantes</div>
                 </div>
                 <div className="card-info">
                   <div className="item-details">
-                    <h3>Structure Trench</h3>
-                    <p className="item-series">L'Atelier Series</p>
+                    <h3>Gabardina Estructurada</h3>
+                    <p className="item-series">Serie L'Atelier</p>
                   </div>
                   <div className="item-pricing">
                     <span className="price">$420.00</span>
-                    <button className="buyout-link">Buy Out</button>
+                    <button className="buyout-link">Comprar</button>
                   </div>
                 </div>
               </div>
@@ -39,16 +43,16 @@ const MemberDashboard = () => {
               <div className="wardrobe-card editorial-shadow">
                 <div className="card-image">
                   <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDogr44G0ssNHTf13ZWSgxbUmK2VvkNx6Upho7ZhUCuqgm-D0DXeh0xvWqYo8cb_k903NkULA2_S6pJQn4kAjfLt4Rc3QhRCHjd3CcvKKPDCFIMICD4wXNv3GJ0FOtyxQD3GLyNaZUdjn4LRAUv84C1HELnitc06m5R_g6YSOmvApbuTzXcRVMhq2mzsm4nmjphn-orVU0lPZUMqBW92D0jVBoLULPuZlZgFT8yg7SRBoOXPcsVGx3ql63e-c65mEH5HkvuwBMYEXE4" alt="Knit" />
-                  <div className="status-badge">12 days left</div>
+                  <div className="status-badge">12 días restantes</div>
                 </div>
                 <div className="card-info">
                   <div className="item-details">
-                    <h3>Obsidian Knit</h3>
-                    <p className="item-series">Winter Capsule</p>
+                    <h3>Tejido de Obsidiana</h3>
+                    <p className="item-series">Cápsula de Invierno</p>
                   </div>
                   <div className="item-pricing">
                     <span className="price">$185.00</span>
-                    <button className="buyout-link">Buy Out</button>
+                    <button className="buyout-link">Comprar</button>
                   </div>
                 </div>
               </div>
@@ -59,15 +63,15 @@ const MemberDashboard = () => {
             <section className="subscription-card bg-primary">
               <div className="sub-header">
                 <div>
-                  <span className="sub-label">Active Plan</span>
-                  <h3 className="sub-title italic">Elite Atelier</h3>
+                  <span className="sub-label">Plan Activo</span>
+                  <h3 className="sub-title italic">Atelier Élite</h3>
                 </div>
                 <span className="material-symbols-outlined">verified</span>
               </div>
               <div className="sub-progress">
                 <div className="progress-text">
-                  <span>Monthly Rotation</span>
-                  <span>65% Complete</span>
+                  <span>Rotación Mensual</span>
+                  <span>65% Completado</span>
                 </div>
                 <div className="progress-bar">
                   <div className="progress-fill" style={{width: '65%'}}></div>
@@ -75,25 +79,25 @@ const MemberDashboard = () => {
               </div>
               <div className="sub-dates">
                 <div className="date-item">
-                  <span className="date-label">Billing Date</span>
-                  <span className="date-value">DEC 24, 2024</span>
+                  <span className="date-label">Fecha Facturación</span>
+                  <span className="date-value">DIC 24, 2024</span>
                 </div>
                 <div className="date-item">
-                  <span className="date-label">Next Shipment</span>
-                  <span className="date-value">EST. DEC 12</span>
+                  <span className="date-label">Próximo Envío</span>
+                  <span className="date-value">EST. DIC 12</span>
                 </div>
               </div>
             </section>
 
             <section className="concierge-actions bg-surface-low">
-              <h4>Concierge Actions</h4>
+              <h4>Acciones Concierge</h4>
               <div className="actions-list">
                 <button className="action-btn">
-                  <span>Schedule Pick-up</span>
+                  <span>Programar Retiro</span>
                   <span className="material-symbols-outlined">arrow_forward</span>
                 </button>
                 <button className="action-btn">
-                  <span>Styling Consultation</span>
+                  <span>Consultoría de Estilo</span>
                   <span className="material-symbols-outlined">calendar_today</span>
                 </button>
               </div>
@@ -105,11 +109,11 @@ const MemberDashboard = () => {
           <div className="footer-content">
             <span className="brand">WardrobeFlow</span>
             <div className="footer-links">
-              <a href="#">Sustainability Manifesto</a>
-              <a href="#">The Process</a>
-              <a href="#">Care Guide</a>
+              <a href="#">Manifiesto de Sostenibilidad</a>
+              <a href="#">El Proceso</a>
+              <a href="#">Guía de Cuidado</a>
             </div>
-            <p className="copyright">© 2024 WardrobeFlow Digital Atelier</p>
+            <p className="copyright">© 2024 WardrobeFlow Atelier Digital</p>
           </div>
         </footer>
       </main>

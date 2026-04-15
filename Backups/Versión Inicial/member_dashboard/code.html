@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>WardrobeFlow | Member Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {primary: "#8a4b5f", background: "#fff8f8", "on-secondary-fixed": "#2e1221", "tertiary-fixed": "#e4e2e1", "surface-container-lowest": "#ffffff", error: "#ba1a1a", "on-surface-variant": "#514346", "on-primary-fixed-variant": "#6e3447", "on-primary-container": "#652c40", "surface-bright": "#fff8f8", "secondary-fixed-dim": "#e9bacd", "outline-variant": "#d6c1c5", outline: "#847376", "on-error-container": "#93000a", "error-container": "#ffdad6", "surface-tint": "#8a4b5f", "on-primary-fixed": "#39081c", "surface-container-low": "#fbf1f3", "surface-dim": "#e1d8da", "tertiary-fixed-dim": "#c8c6c6", "secondary-container": "#fdcde1", "primary-fixed-dim": "#ffb1c7", "on-secondary-fixed-variant": "#5f3c4d", "on-tertiary-container": "#3f3f3f", secondary: "#795465", surface: "#fff8f8", "on-tertiary-fixed-variant": "#474747", "secondary-fixed": "#ffd8e7", "primary-fixed": "#ffd9e2", "tertiary-container": "#acaaaa", "surface-container": "#f5ebed", "surface-container-high": "#efe6e8", "inverse-primary": "#ffb1c7", "on-background": "#1f1a1c", "on-surface": "#1f1a1c", "on-secondary": "#ffffff", "inverse-surface": "#342f31", "inverse-on-surface": "#f8eef0", "surface-container-highest": "#eae0e2", tertiary: "#5f5e5e", "on-error": "#ffffff", "surface-variant": "#eae0e2", "on-tertiary": "#ffffff", "on-primary": "#ffffff", "on-secondary-container": "#795465", "primary-container": "#e195ab", "on-tertiary-fixed": "#1b1c1c"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}, fontFamily: {headline: ["Noto Serif"], body: ["Manrope"], label: ["Manrope"], display: "Noto Serif"}}}};</script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-shadow {
+            box-shadow: 0 20px 40px rgba(27, 28, 23, 0.06);
+        }
+        .glass-nav {
+            background: rgba(251, 249, 241, 0.8);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body">
+<!-- SideNavBar Component -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-[#f6f4ec] flex flex-col py-8 px-6 border-r border-[#eae8e0]">
+<div class="mb-12">
+<h1 class="font-serif text-xl text-[#002116]">The Atelier</h1>
+<div class="mt-8 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden">
+<img alt="Member Profile" class="w-full h-full object-cover" data-alt="Close-up portrait of a sophisticated man with a stylish haircut, looking off-camera against a neutral background, high-end editorial style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRfUH-AWkFyH0M_2hpnTszQFFtenLCbf81JFkrSQGr5G1-rKky9or-JVn05CM4n_eZG-lH9wE1iE6SLog0DrTvxz-eW7IEw368VNoZ7HOO4z--2rxMsOQiJPHVKS8oTG0wbAl2wfDCiW9k7Wagh0SZAXUN9gVDFRygSVJp4J2J3k9oWY64TI_p8P1uLiT7jc7HhFpKLNKXYFqGlf-cuXTfejL8UhhAp7zjTpOMiodj9OVw-m_SBI6YMxJza-yktY32Er755hkQY3rf"/>
+</div>
+<div>
+<p class="text-[10px] uppercase tracking-widest text-[#606660]">Elite Member</p>
+<p class="font-bold text-sm text-[#002116]">Julian V.</p>
+</div>
+</div>
+</div>
+<nav class="flex-grow flex flex-col gap-2">
+<a class="flex items-center gap-3 py-3 px-4 rounded transition-all duration-200 text-[#606660] hover:bg-[#eae8e0] font-sans text-sm uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined text-lg">dashboard</span>
+<span>Overview</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 rounded transition-all duration-200 text-[#002116] font-bold bg-[#eae8e0] font-sans text-sm uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined text-lg">checkroom</span>
+<span>My Wardrobe</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 rounded transition-all duration-200 text-[#606660] hover:bg-[#eae8e0] font-sans text-sm uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined text-lg">sync_alt</span>
+<span>Exchanges</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 rounded transition-all duration-200 text-[#606660] hover:bg-[#eae8e0] font-sans text-sm uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined text-lg">tune</span>
+<span>Preferences</span>
+</a>
+<a class="flex items-center gap-3 py-3 px-4 rounded transition-all duration-200 text-[#606660] hover:bg-[#eae8e0] font-sans text-sm uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined text-lg">payments</span>
+<span>Billing</span>
+</a>
+</nav>
+<div class="mt-auto pt-8">
+<button class="flex items-center gap-3 text-[#606660] font-sans text-xs uppercase tracking-widest hover:text-[#002116]">
+<span class="material-symbols-outlined">logout</span>
+<span>Logout</span>
+</button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen p-12">
+<!-- Header Section -->
+<header class="flex justify-between items-end mb-16">
+<div>
+<span class="text-xs uppercase tracking-[0.2rem] text-outline font-bold mb-2 block">Curation Hub</span>
+<h2 class="text-5xl font-serif tracking-tight text-primary">My Current Wardrobe</h2>
+</div>
+<div class="flex gap-4">
+<button class="bg-primary text-on-primary px-8 py-3 text-xs uppercase tracking-widest font-bold rounded-sm hover:opacity-90 transition-opacity">
+                    Request an Exchange
+                </button>
+</div>
+</header>
+<!-- Top Level Bento Grid -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Wardrobe Gallery (Left 8 Columns) -->
+<div class="col-span-8 space-y-8">
+<div class="grid grid-cols-2 gap-8">
+<!-- Item 1 -->
+<div class="bg-surface-container-lowest editorial-shadow group overflow-hidden">
+<div class="relative aspect-[3/4] overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Minimalist designer beige trench coat hanging against a clean cream studio wall, soft shadows, high fashion editorial lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_Hnuvq-0KZf_Z3qSwJ18QxgDMNOnGTxAMjxwUNByEvojWUaaKgGoTg1fqdKMOMKFEfKzwPK_FDzlTat6WHzsJPDmRoOt4wMMSxaf7b3Grtg0kXHRCcHzBoda8nDe6p7M3zoGyq1D8FZRQn0wLUBfEw1P5aubF60B_kDBQJeVZZobHY8lhTD3yWYhxyA7zRm-kyf9pNEDZpcQFrVkVEc0gYFlAXhSHDGrTCmDUSVaLnXzOBtLppm2fktH51Q7kfBGmsO45GMX5Vhv6"/>
+<div class="absolute top-4 left-4 bg-background/90 backdrop-blur px-3 py-1 text-[10px] uppercase tracking-widest font-bold text-primary">
+                                12 days left
+                            </div>
+</div>
+<div class="p-6 flex justify-between items-start">
+<div>
+<h3 class="font-serif text-xl text-primary">Structure Trench</h3>
+<p class="text-xs text-outline uppercase tracking-wider mt-1">L'Atelier Series</p>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-primary">$420.00</p>
+<button class="text-[10px] uppercase tracking-tighter text-primary-container border-b border-primary-container/20 hover:border-primary-container transition-all">Buy Out</button>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="bg-surface-container-lowest editorial-shadow group overflow-hidden">
+<div class="relative aspect-[3/4] overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Heavy knit charcoal sweater in a professional flat lay style with artistic folds, moody soft lighting, texture-focused fashion shot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDogr44G0ssNHTf13ZWSgxbUmK2VvkNx6Upho7ZhUCuqgm-D0DXeh0xvWqYo8cb_k903NkULA2_S6pJQn4kAjfLt4Rc3QhRCHjd3CcvKKPDCFIMICD4wXNv3GJ0FOtyxQD3GLyNaZUdjn4LRAUv84C1HELnitc06m5R_g6YSOmvApbuTzXcRVMhq2mzsm4nmjphn-orVU0lPZUMqBW92D0jVBoLULPuZlZgFT8yg7SRBoOXPcsVGx3ql63e-c65mEH5HkvuwBMYEXE4"/>
+<div class="absolute top-4 left-4 bg-background/90 backdrop-blur px-3 py-1 text-[10px] uppercase tracking-widest font-bold text-primary">
+                                12 days left
+                            </div>
+</div>
+<div class="p-6 flex justify-between items-start">
+<div>
+<h3 class="font-serif text-xl text-primary">Obsidian Knit</h3>
+<p class="text-xs text-outline uppercase tracking-wider mt-1">Winter Capsule</p>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-primary">$185.00</p>
+<button class="text-[10px] uppercase tracking-tighter text-primary-container border-b border-primary-container/20 hover:border-primary-container transition-all">Buy Out</button>
+</div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="bg-surface-container-lowest editorial-shadow group overflow-hidden">
+<div class="relative aspect-[3/4] overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Premium white poplin shirt with architectural collar design, draped over a wooden chair in a sun-drenched minimalist loft" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_ZOXukjcbotD7X1zG1N1M40GaJ8W2wfSEa7gLlxtxKOuVSJhiuzY4qjXvLUmUYME35pycJQLa9CEIGYSHOG92EzECMKrWFXBeaaahfM8yIjRxxWffK6UoYcWLuhMr4Sl951OUD-UqHyjJ95ACUUGh9XDrLUM-2fXIRcVJpzsAYE6Cu-aM5IewcmAytmqXLpyioaLHrmoQA1_X3uS_CHAdaEGTU1YY1X1SoIJo27JQuo-OxdYi2nGiN9wO4SEgJ-uUb_-cHVpZvDT3"/>
+<div class="absolute top-4 left-4 bg-background/90 backdrop-blur px-3 py-1 text-[10px] uppercase tracking-widest font-bold text-primary">
+                                12 days left
+                            </div>
+</div>
+<div class="p-6 flex justify-between items-start">
+<div>
+<h3 class="font-serif text-xl text-primary">Paper Shirt 01</h3>
+<p class="text-xs text-outline uppercase tracking-wider mt-1">Essentials</p>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-primary">$110.00</p>
+<button class="text-[10px] uppercase tracking-tighter text-primary-container border-b border-primary-container/20 hover:border-primary-container transition-all">Buy Out</button>
+</div>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="bg-surface-container-lowest editorial-shadow group overflow-hidden">
+<div class="relative aspect-[3/4] overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Raw indigo denim jeans folded neatly on a slate surface, detailed stitching visible, high contrast dramatic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3tQOwkIk1x8oAwlIpu9MjJfp_xAsOfFjCaysB_VBLVAu2I-h1AHK04bLIuBdg9GxzrzVNwSOi_n0h_nzgxqlsDAKTuMtCYmaga6QwprNfm1c3pBdZwG4f58m_TicTOeGA1kX79uMa2T4G4GxfmLMa-5KcLHphSkLboCGuCn5TG2vT8u6FoyRaCbja1zPnaDBLRG8-vHQYo8k3voCWFlFATl5p1-Ldmqwdj2lsOvvAGuaOaIJbNmSSU5H1hO3oOljWW4q9BdutcVPk"/>
+<div class="absolute top-4 left-4 bg-background/90 backdrop-blur px-3 py-1 text-[10px] uppercase tracking-widest font-bold text-primary">
+                                12 days left
+                            </div>
+</div>
+<div class="p-6 flex justify-between items-start">
+<div>
+<h3 class="font-serif text-xl text-primary">Raw Indigo Selvage</h3>
+<p class="text-xs text-outline uppercase tracking-wider mt-1">Denim Edit</p>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-primary">$290.00</p>
+<button class="text-[10px] uppercase tracking-tighter text-primary-container border-b border-primary-container/20 hover:border-primary-container transition-all">Buy Out</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sidebar Info (Right 4 Columns) -->
+<div class="col-span-4 space-y-8">
+<!-- Subscription Card -->
+<section class="bg-primary text-on-primary p-8 rounded-sm">
+<div class="flex justify-between items-start mb-8">
+<div>
+<p class="text-[10px] uppercase tracking-[0.2rem] text-primary-fixed-dim/80 mb-1">Active Plan</p>
+<h3 class="text-2xl font-serif italic">Elite Atelier</h3>
+</div>
+<span class="material-symbols-outlined text-primary-fixed-dim">verified</span>
+</div>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between text-[10px] uppercase tracking-widest mb-2 opacity-80">
+<span>Monthly Rotation</span>
+<span>65% Complete</span>
+</div>
+<div class="h-1 bg-white/10 w-full">
+<div class="h-full bg-primary-fixed-dim w-[65%]"></div>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-4 pt-4 border-t border-white/10">
+<div class="flex justify-between items-center">
+<span class="text-xs text-primary-fixed-dim/70">Billing Date</span>
+<span class="text-xs font-bold tracking-widest">DEC 24, 2024</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xs text-primary-fixed-dim/70">Next Shipment</span>
+<span class="text-xs font-bold tracking-widest">EST. DEC 12</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Quick Actions / Status -->
+<section class="bg-surface-container-low p-8 border border-[#eae8e0]">
+<h4 class="font-serif text-lg text-primary mb-6">Concierge Actions</h4>
+<div class="space-y-4">
+<button class="w-full flex items-center justify-between p-4 bg-surface-container-lowest hover:bg-surface-container transition-colors group">
+<span class="text-xs uppercase tracking-widest text-primary font-bold">Schedule Pick-up</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 bg-surface-container-lowest hover:bg-surface-container transition-colors group">
+<span class="text-xs uppercase tracking-widest text-primary font-bold">Styling Consultation</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">calendar_today</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 bg-surface-container-lowest hover:bg-surface-container transition-colors group">
+<span class="text-xs uppercase tracking-widest text-primary font-bold">Care Request</span>
+<span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">sanitizer</span>
+</button>
+</div>
+</section>
+<!-- Small Aesthetic Image Block -->
+<div class="relative h-64 overflow-hidden rounded-sm grayscale hover:grayscale-0 transition-all duration-1000">
+<img class="w-full h-full object-cover" data-alt="Interior of a luxury minimalist walk-in closet with organized high-end apparel, soft architectural lighting, elegant atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQtmap_lFGpnOJqA8N59C6tOSKERkCO0KjfM914ry-NG2hS_HCfM2an0ksVpMnJjWj16YKZAW-5xRPgPyd7qeCKz1zaJvAm-1MRDxDE4AVYVN4B-MgHyMEvvAiWisYcAaT-OlhZeaAAxGbreHbcpZCndc246QtKqa67j1V1KkpA9pSQW82iJ5unuWpeCPss3FgCDH-uA2RHab4_G6feeQ6WPYhT19q6OfMz5KM-ds8zL7jO-nVscBlZoYCUF1XYYL_zg3ZlhCYhQ5R"/>
+<div class="absolute inset-0 bg-primary/20"></div>
+<div class="absolute bottom-6 left-6 right-6 text-white">
+<p class="text-[10px] uppercase tracking-[0.3rem] mb-1">New Arrival</p>
+<p class="font-serif italic text-lg leading-tight">The Sustainable Cashmere Edit</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Component -->
+<footer class="w-full py-16 bg-[#002116] mt-12">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 max-w-[1920px] mx-auto">
+<div class="mb-8 md:mb-0">
+<span class="font-serif italic text-white text-xl">WardrobeFlow</span>
+<p class="text-[#dee4dd]/60 font-sans text-[10px] uppercase tracking-[0.1rem] mt-2">© 2024 WardrobeFlow Digital Atelier</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-[#dee4dd]/60 hover:text-white transition-opacity font-sans text-[10px] uppercase tracking-[0.1rem]" href="#">Sustainability Manifesto</a>
+<a class="text-[#dee4dd]/60 hover:text-white transition-opacity font-sans text-[10px] uppercase tracking-[0.1rem]" href="#">The Process</a>
+<a class="text-[#dee4dd]/60 hover:text-white transition-opacity font-sans text-[10px] uppercase tracking-[0.1rem]" href="#">Care Guide</a>
+<a class="text-[#dee4dd]/60 hover:text-white transition-opacity font-sans text-[10px] uppercase tracking-[0.1rem]" href="#">Privacy</a>
+<a class="text-[#dee4dd]/60 hover:text-white transition-opacity font-sans text-[10px] uppercase tracking-[0.1rem]" href="#">Terms</a>
+</div>
+</div>
+</footer>
+</body></html>
